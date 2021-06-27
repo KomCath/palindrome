@@ -1,19 +1,9 @@
+module.exports = Phrase;
+
 // Adds `reverse` to all strings.
 String.prototype.reverse = function reverse() {
   return Array.from(this).reverse().join("");
 };
-
-// exercise 7.3.1
-// Adds `blank` to all strings.
-// String.prototype.blank = function blank() {
-//   return this.length === 0 || this.includes
-// };
-
-// // Reverses a string.
-// function reverse(string) {
-//   return Array.from(string).reverse().join("");
-// }
-
 
 // Defines a Phrase object.
 function Phrase(content) {
@@ -59,16 +49,3 @@ TranslatedPhrase.prototype = new Phrase();
 String.prototype.palindrome = function palindrome() {
   return new Phrase(this).palindrome();
 };
-
-
-// exercise 7.3.1 - 2
-Array.prototype.last = function last() {
-  return this.slice(-1);
-};
-
-
-
-
-
-
-

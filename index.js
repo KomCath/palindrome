@@ -9,15 +9,15 @@ String.prototype.reverse = function reverse() {
 function Phrase(content) {
   this.content = content;
 
-  // exercise 7.2.1
-  //  Returns the lower-case version of the content.
-  this.processor = function(string) {
-    return string.toLowerCase();
+  // Returns the letters in the content.
+  this.letters = function letters() {
+    return (this.content.match(/[a-z]/gi) || []).join("");
+    // return Array.from(this.content).filter(c => c.match(/[a-z]/i)).join("");
   };
 
   // Returns content processed for palindrome testing.
   this.processedContent = function processedContent() {
-    return this.processor(this.content);
+    return this.letters().toLowerCase();
   };
 
   // Return true for a palindrome, false otherwise.
@@ -28,7 +28,7 @@ function Phrase(content) {
   // exercise 7.1.1
   // Makes the phrase LOUDER.
   this.louder = function louder() {
-    return this.content.toUpperCase();
+    return this.letters().toUpperCase();
   };
 }
 

@@ -11,8 +11,9 @@ function Phrase(content) {
 
   // Returns the letters in the content.
   this.letters = function letters() {
-    return (this.content.match(/[a-z]/gi) || []).join("");
-    // return Array.from(this.content).filter(c => c.match(/[a-z]/i)).join("");
+    const lettersRegEx = /[a-z]/gi;
+    return (this.content.match(lettersRegEx) || []).join("");
+    // return Array.from(this.content).filter(c => c.match(lettersRegEx)).join("");
   };
 
   // Returns content processed for palindrome testing.
@@ -22,7 +23,11 @@ function Phrase(content) {
 
   // Return true for a palindrome, false otherwise.
   this.palindrome = function palindrome() {
-    return this.processedContent() === this.processedContent().reverse();
+    if (this.letters()) {
+      return this.processedContent() === this.processedContent().reverse();
+    } else {
+      return false;
+    }
   };
 
   // exercise 7.1.1
